@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { countries } from "./CountryLists";
-import { ReadMeModal } from "./ReadMeModal";
+import ReadMeModal from "./ReadMeModal";
 import InputField from "./../common/InputField";
 
 class RegisterForm extends Component {
@@ -113,7 +113,7 @@ class RegisterForm extends Component {
               className="my-2 btn btn-primary"
               type="submit"
               value="Submit"
-            />{" "}
+            />
             <ReadMeModal />
           </fieldset>
         </form>

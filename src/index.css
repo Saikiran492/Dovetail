@@ -19,3 +19,7 @@ code {
 .countryHeight {
   height: 35px;
 }
+.customModal {
+  height: 300px;
+  width: 50%;
+}

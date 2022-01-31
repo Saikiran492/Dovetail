@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
-export function ReadMeModal() {
-  const [show, setShow] = useState(false);
+import React, { useState } from "react";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+const ReadMeModal = () => {
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        ReadMe
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Instructions</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+    <div>
+      <Modal
+        open={open}
+        classNames={{ modal: "customModal" }}
+        onClose={onCloseModal}
+        center
+      >
+        <div className="me-4">
           <p>
             1. First Name/ Last Name are mandatory/required text fields and
             should be greater than 5 characters.
@@ -26,13 +26,13 @@ export function ReadMeModal() {
             field.
           </p>
           <p>3. Country is mandatory/required.</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
+        </div>
       </Modal>
-    </>
+      <button className="btn btn-primary" onClick={onOpenModal}>
+        Read Me
+      </button>
+    </div>
   );
-}
+};
+
+export default ReadMeModal;
