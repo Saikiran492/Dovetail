@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { countries } from "./CountryLists";
 import { ReadMeModal } from "./ReadMeModal";
+import InputField from "./../common/InputField";
 
 class RegisterForm extends Component {
   state = {
@@ -56,62 +57,51 @@ class RegisterForm extends Component {
   render() {
     const { firstNameErr, lastNameErr, numberErr, countryErr } =
       this.state.errors;
+    const { firstName, lastName, number, country, countryLists } = this.state;
     return (
-      <div style={{ margin: "auto", width: "35%", marginTop: "50px" }}>
+      <div className="areaStyle">
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <legend>Registration Form</legend>
             <div>
-              <label htmlFor="fname">FirstName:</label>
-              <input
-                className="m-2"
-                type="text"
-                id="fname"
+              <InputField
                 name="firstName"
-                value={this.state.firstName}
+                label="FirstName"
+                value={firstName}
                 onChange={this.handleInput}
-              ></input>
-              {firstNameErr && (
-                <div className="text-danger">{firstNameErr}</div>
-              )}
+                error={firstNameErr}
+              />
             </div>
             <div>
-              <label htmlFor="lname">LastName:</label>
-              <input
-                className="m-2"
-                type="text"
-                id="lname"
+              <InputField
                 name="lastName"
-                value={this.state.lastName}
+                label="LastName"
+                value={lastName}
                 onChange={this.handleInput}
-              ></input>{" "}
-              {lastNameErr && <div className="text-danger">{lastNameErr}</div>}
+                error={lastNameErr}
+              />
             </div>
             <div>
-              <label htmlFor="number">Phone Number:</label>
-              <input
-                className="m-2"
-                type="tel"
-                id="number"
+              <InputField
                 name="number"
-                value={this.state.number}
+                type="tel"
+                label="Phone Number"
+                value={number}
                 onChange={this.handleInput}
-                placeholder="Phone Number"
-              ></input>
-              {numberErr && <div className="text-danger">{numberErr}</div>}
+                error={numberErr}
+              />
             </div>
             <div>
               <label htmlFor="country">Country:</label>
               <select
                 name="country"
-                className="m-2"
-                value={this.state.country}
+                className="m-2 countryHeight"
+                value={country}
                 onChange={this.handleInput}
-                style={{ height: "35px" }}
                 id="country"
               >
                 <option value="select">--Select--</option>
-                {this.state.countryLists.map((country) => (
+                {countryLists.map((country) => (
                   <option key={country.code} value={country.name}>
                     {country.name}
                   </option>

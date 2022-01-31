@@ -24,13 +24,7 @@ class AnagramTester extends Component {
   render() {
     const { firstWord, secondWord, isAnagramValue, subVal } = this.state;
     return (
-      <div
-        style={{
-          margin: "auto",
-          width: "40%",
-          marginTop: "50px",
-        }}
-      >
+      <div className="areaStyle">
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="firstWord">Enter the First Word:</label>
@@ -44,7 +38,7 @@ class AnagramTester extends Component {
             />
           </div>
           <div>
-            <label htmlFor="SecondWord">Enter the Second Word:</label>
+            <label htmlFor="secondWord">Enter the Second Word:</label>
             <input
               className="m-2"
               type="text"

@@ -34,7 +34,6 @@ class TempTracker extends Component {
     const { temprature } = this.state;
     let total = 0;
     temprature.forEach((temp) => (total += Number(temp)));
-    console.log(total);
 
     return temprature.length ? parseFloat(total / temprature.length) : "";
   };
@@ -64,13 +63,7 @@ class TempTracker extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          margin: "auto",
-          width: "30%",
-          marginTop: "50px",
-        }}
-      >
+      <div className="areaStyle">
         <form onSubmit={this.insert}>
           <label htmlFor="temprature">Enter the Temprature:</label>
           <input
@@ -81,7 +74,7 @@ class TempTracker extends Component {
             value={this.state.submittedValue}
             onChange={this.handleChange}
           />
-          <input type="submit" value="submit" />
+          <input type="submit" value="Submit" />
         </form>
         <div className="mt-3">
           <p>Minimun Value:{this.get_min()}</p>
