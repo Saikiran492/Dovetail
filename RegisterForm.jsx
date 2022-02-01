@@ -109,11 +109,16 @@ class RegisterForm extends Component {
               </select>
               {countryErr && <div className="text-danger">{countryErr}</div>}
             </div>
-            <input
-              className="my-2 btn btn-primary"
-              type="submit"
-              value="Submit"
-            />
+            <div>
+              <input
+                className="my-2 btn btn-primary"
+                type="submit"
+                value="Submit"
+              />
+              {/* <div className="mt-2 me-5 float-end">
+                <ReadMeModal />
+              </div> */}
+            </div>
           </fieldset>
         </form>
       </div>
