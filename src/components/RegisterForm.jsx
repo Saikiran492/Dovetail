@@ -115,12 +115,12 @@ class RegisterForm extends Component {
                 type="submit"
                 value="Submit"
               />
-              {/* <div className="mt-2 me-5 float-end">
-                <ReadMeModal />
-              </div> */}
             </div>
           </fieldset>
         </form>
+        <div className="me-5 float-end">
+          <ReadMeModal />
+        </div>
       </div>
     );
   }
